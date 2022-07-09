@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Planet from './planet';
+import Form from './form'
 
 const clickOnPlanet = (name) => {
     console.log(`Um click no planeta: ${name}`)
@@ -22,6 +23,10 @@ const Planets = () => {
         })
     }, [])
 
+    const addPlanet = (new_planet) => {
+        setPlanets([...planets, new_planet])
+    }
+
     const removeLast = () => {
         let new_planets = [...planets];
         new_planets.pop();
@@ -38,6 +43,8 @@ const Planets = () => {
             <h3> Planet List</h3>
             <button onClick={removeLast}>Remover o ultimo planeta!</button>
             <button onClick={duplicateLast}>Duplicar o ultimo planeta!</button>
+            <Form addPlanet={addPlanet}/>
+            <hr/>
             {planets.map((planet, index) =>
                 <Planet
                     key={index}
