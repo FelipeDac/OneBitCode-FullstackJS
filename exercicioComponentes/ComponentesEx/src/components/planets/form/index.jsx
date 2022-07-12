@@ -10,7 +10,7 @@ const initialState = {
 const Form = (props) => {
     const [fields, setFields] = useState(initialState);
 
-    const handleFieldsChange = (e) = setFields({
+    const handleFieldsChange = (e) => setFields({
         ...fields,
         [e.currentTarget.name]: e.currentTarget.value
     });
